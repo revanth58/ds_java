@@ -1,4 +1,11 @@
 class Node{
+    /*
+        every node contains 2 things : value, next
+        value : stores the value in our current node
+        next  : references the next node in the list
+
+        To give a list, you only need to pass the head node
+    */
     int value;
     Node next;
     Node(int data){        // constructor1
