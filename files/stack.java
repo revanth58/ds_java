@@ -7,15 +7,22 @@ class Stack {
                 as we keep adding elements and keep moving 
                 left as we keep popping off the stack
     */
-    
-    
     int arr[];
     int top;
+    /*
+        Constructor which does initialization with top as -1
+        top = -1 --> stack is empty
+        top = 0 ---> stack has single element whose top most
+                     element is at index 0..
 
+        In this implementation we consider our stack will 
+        have an upper limit on its size
+    */
     Stack(int size){
         arr = new int[size];
         top = -1;
     }
+    
     public void push(int x){
         if( top == arr.length-1){
             System.out.print("ERROR : stack is already full\n");
@@ -77,3 +84,4 @@ class S {
     }
 
 }
+
