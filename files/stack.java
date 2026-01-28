@@ -1,4 +1,14 @@
 class Stack {
+    /*
+        arr  :  array to store the stack where the index 0 is 
+                the bottom most element in the stack
+        top  :  top will point to the index which is the top 
+                most element, top will keep moving right
+                as we keep adding elements and keep moving 
+                left as we keep popping off the stack
+    */
+    
+    
     int arr[];
     int top;
 
@@ -65,4 +75,5 @@ class S {
         }
         s1.pop();
     }
+
 }
