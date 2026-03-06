@@ -34,7 +34,7 @@ class Queue{
         return arr[start];
     }
 
-    public boolean isempty(){return length==0;}
+    public boolean isEmpty(){return length==0;}
 
     public void print_queue(){
         System.out.print("starting at " + start + " and length is " + length + "...\n");
@@ -120,3 +120,4 @@ class G{
     }
 
 }
+
