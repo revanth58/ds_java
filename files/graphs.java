@@ -1,70 +1,51 @@
-class Queue {
-    int arr[];
+class Queue{
     int size;
-    boolean isempty;
-    int start; int end;
+    int arr[];
+    int start,length;
     Queue(int s){
-        arr = new int[s];
+        if(s<=0){
+            System.out.print("ERROR : give a proper size\n");
+        }
+        start=length=0;
         size=s;
-        isempty = true;
+        arr = new int[size];
     }
 
     public void push(int x){
-        if(isempty == true){
-            isempty = false;
-            start = end = 0;
-            arr[start] = x;
-            //System.out.print("push into empty queue\n");
+        if(length ==size){
+            System.out.print("ERROR : queue already full..\n");
             return ;
         }
-        if((end - start) % size == size-1){
-            //System.out.print("ERROR : queue full\n");
-            return ;
-        }
-        end = (end+1)%size;
-        arr[end] = x;
-        //System.out.print("PUSH successful\n");
+        length++;
+        arr[(start+length-1)%size]=x;
     }
 
     public void pop(){
-        if(isempty == true){
-            //System.out.print("ERROR : queue already empty\n");
+        if(length == 0){
+            System.out.print("ERROR : queue is empty man..\n");
             return ;
         }
-        if(start == end) {
-            isempty = true;
-            start=end=0;
-            //System.out.print("POP successful. Queue now empty\n");
-            return ;
-        }
-        start = (start +1 )%size;
-        //System.out.print("POP successful\n");
+        length -=1;
+        start = (start+1)%size;
     }
 
     public int peek(){
-        if(isempty == true) {/*System.out.print("ERROR : queue empty\n");*/ return -1;}
+        if(length == 0){System.out.print("ERROR : queue is empty man..\n");}
         return arr[start];
     }
 
-    public boolean isEmpty(){
-        return isempty;
-    }
-
-    public int Size(){
-        if(isempty == true) return 0;
-        return 1 + ((end - start)%size) + (((end - start)%size <0)? size:0) ; 
-    }
+    public boolean isempty(){return length==0;}
 
     public void print_queue(){
-        if(isempty == true){
-            //System.out.print("ERROR : queue empty\n");
-            return ;
+        System.out.print("starting at " + start + " and length is " + length + "...\n");
+        for(int i=0;i<length;i++){
+            System.out.print(arr[(start+i)%size] + " ");
         }
+        System.out.print("\n");
+    }
 
-        //System.out.print("starting at " + start +"...\n");
-        for(int i=0;i<Size();i++){
-            //System.out.print(arr[(start + i)%size] + " ");
-        }//System.out.print("ending at " +end+ "...\n");
+    public int size(){
+        return length;
     }
 }
 
@@ -137,4 +118,5 @@ class G{
         };
         BFS(E,1);
     }
+
 }
